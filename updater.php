@@ -127,7 +127,8 @@ function transient_update_themes_filter($data){
 		$download_link = $theme['Github Theme URI'] . '/zipball/' . $newest_tag;
 		$update = array();
 		$update['new_version'] = $newest_tag;
-		$update['url']         = $theme['Github Theme URI'];
+		//$update['url']         = $theme['Github Theme URI'];
+		$update['url']  = sprintf('http://%s.github.com/%s', urlencode($matches['username']), urlencode($matches['repo']));
 		$update['package']     = $download_link;
 		$data->response[$theme_key] = $update;
 		
